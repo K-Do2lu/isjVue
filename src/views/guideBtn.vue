@@ -67,7 +67,7 @@
           :class="{ focused: chip.focus }"
         >
           <span>{{ chip.tit }}</span
-          ><i :class="chip.icon"></i>
+          ><i :class="chip.icon" v-if="chip.focus === true"></i>
         </button>
       </div>
     </div>
