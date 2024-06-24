@@ -112,6 +112,10 @@ button {
   cursor: pointer;
 }
 
+.txt-under {
+  text-decoration-line: underline;
+}
+
 .icon {
   width: auto;
   height: auto;
@@ -839,10 +843,40 @@ input:focus {
   background: #eee;
 }
 
+.main-align {
+  display: flex;
+}
+
 .side {
-  min-width: 20rem;
-  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 20rem;
   height: 100vh;
   padding: 2.5rem 1.25rem;
   background: #eee;
+}
+.side .side-top {
+  padding: 0.5rem 0 3rem 0;
+  border-bottom: 1px solid #111;
+}
+.side .side-top .logo {
+  width: 100%;
+  height: 10.5rem;
+  background-image: url("@/assets/img/img_logo_l.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+}
+.side .side-mid {
+  flex: 1;
+  padding-top: 2.125rem;
+}
+.side .side-mid .txt-under {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+.side .side-bttm button {
+  width: 100%;
 }/*# sourceMappingURL=normal.css.map */

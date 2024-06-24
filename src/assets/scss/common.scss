@@ -212,6 +212,10 @@ button {
   cursor: pointer;
 }
 
+.txt-under {
+  text-decoration-line: underline;
+}
+
 //Icon *black default
 .icon {
   @include icon-svg(auto, auto, cover);

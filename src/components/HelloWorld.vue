@@ -1,17 +1,20 @@
 <template>
-  <div>
+  <div class="main-align">
     <areaSide></areaSide>
+    <areaHome></areaHome>
   </div>
 </template>
 
 <script>
 import areaSide from "./areaSide.vue";
+import areaHome from "./areaHome.vue";
 
 export default {
   name: "HelloWorld",
 
   components: {
     areaSide,
+    areaHome,
   },
   props: {
     msg: String,
@@ -24,4 +27,6 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style lang="scss" scoped>
+@import "../assets/scss/normal.scss";
+</style>

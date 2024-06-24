@@ -1,22 +1,13 @@
 <template>
-  <areaHeader></areaHeader>
-
-  <!-- Home area -->
-  <!-- // Home area -->
+  <div>rlahEl</div>
 </template>
 
 <script>
-import areaHeader from "./areaHeader.vue";
-
 export default {
-  name: "areaHome",
+  name: "areaHeader",
   props: {
     msg: String,
   },
-  components: {
-    areaHeader,
-  },
-  computed: {},
   data() {
     return {};
   },
