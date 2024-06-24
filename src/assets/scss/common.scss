@@ -491,11 +491,6 @@ $keywords: (
     border-color: $c-111;
   }
 
-  &.focused {
-    background: $c-fff;
-    border-color: $c-111;
-  }
-
   &:has(.check) {
     box-shadow: 2px 2px 8px 0px #0000001a;
   }
@@ -504,14 +499,14 @@ $keywords: (
     width: clamp(1.25rem, 2vw, 1.5rem);
     height: clamp(1.25rem, 2vw, 1.5rem);
   }
+
+  &.focused {
+    border-color: $c-111;
+    background: $c-fff;
+  }
 }
 
 //input
-input {
-  width: 100%;
-  border: none;
-  outline: none;
-}
 
 .inp-row {
   &:has(input[disabled]) {
@@ -541,10 +536,6 @@ input {
       @include fs-16-24;
       font-weight: 400;
       color: $c-999;
-    }
-
-    &:focus {
-      border-bottom-color: $c-111;
     }
 
     &:disabled {
@@ -630,9 +621,10 @@ label {
 
 .inp-date {
   position: relative;
-  border-bottom: 1px solid $c-bbb;
+
   > input {
     padding: 0.625rem 2.375rem 0.625rem 0;
+    border-bottom: 1px solid $c-bbb;
     @include fs-18-28;
 
     &::placeholder {
@@ -647,5 +639,152 @@ label {
     transform: translateY(-50%);
     content: "";
     @include clamp(1.75rem, 2vw, 1.75rem);
+  }
+}
+
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom-color: transparent;
+
+  &:focus {
+    border-bottom-color: $c-111;
+  }
+}
+
+//
+// guideBasic
+.guide {
+  font-family: "Pretendard-Regular", "wanted-sans", sans-serif;
+  // font-family: "Pretendard", "Poppins", "Noto Sans KR", sans-serif;
+  color: $c-2c3e50;
+  .body {
+    .guide-menu {
+      position: fixed;
+      min-width: 200px;
+      height: 100vh;
+      border-right: 1px solid;
+      overflow: auto;
+      background: $c-fff;
+
+      .logo {
+        padding: 20px;
+        cursor: pointer;
+      }
+
+      li {
+        position: relative;
+        padding: 12px 20px;
+        cursor: pointer;
+
+        &:hover {
+          background: $c-f8f8f8;
+          font-weight: 600;
+          text-decoration: underline;
+
+          &::after {
+            opacity: 1;
+          }
+        }
+
+        &::after {
+          display: inline-block;
+          content: "🧩";
+          position: absolute;
+          right: 20px;
+          opacity: 0;
+        }
+      }
+    }
+
+    .guide-cont {
+      padding: 80px 40px 40px 240px;
+      .cont-top {
+        padding-bottom: 20px;
+        border-bottom: 1px solid $c-111;
+        h2 {
+          margin-bottom: 4px;
+        }
+      }
+      .cont-mid {
+        @include flex-align(flex, column);
+        gap: 20px;
+        padding-top: 40px;
+
+        .item {
+          .item-tit {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+          }
+
+          //   color
+          .colors-wrap {
+            @include flex-align(flex, row);
+            flex-wrap: wrap;
+            gap: 12px;
+
+            > div {
+              position: relative;
+              min-width: calc(100% / 12);
+              min-height: 100px;
+              border-radius: 12px;
+              border: 1px solid $c-ccc;
+              overflow: hidden;
+              p {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                padding: 4px 8px;
+                background: $c-fff;
+                text-align: center;
+              }
+            }
+
+            @for $i from 1 through length($colors) {
+              .color#{$i} {
+                background-color: nth($colors, $i);
+              }
+            }
+          }
+
+          //Typo
+          .typo-wrap {
+            .typo-table {
+              border: 1px solid $c-111;
+
+              table {
+                width: 100%;
+                thead {
+                  th {
+                    background: #ffe6a0;
+                  }
+                }
+                tbody {
+                  tr {
+                    border-bottom: 1px dashed $c-d9d9d9;
+                    &:last-child {
+                      border-bottom: none;
+                    }
+                    &:nth-child(2n) {
+                      background: $c-f8f8f8;
+                    }
+                    td {
+                      padding: 0 4px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          //icon
+          .icon-wrap {
+            border-radius: 12px;
+            background: $c-eee;
+          }
+        }
+      }
+    }
   }
 }

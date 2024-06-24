@@ -503,10 +503,6 @@ button {
 .chip:hover {
   border-color: #111;
 }
-.chip.focused {
-  background: #fff;
-  border-color: #111;
-}
 .chip:has(.check) {
   box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1019607843);
 }
@@ -514,11 +510,9 @@ button {
   width: clamp(1.25rem, 2vw, 1.5rem);
   height: clamp(1.25rem, 2vw, 1.5rem);
 }
-
-input {
-  width: 100%;
-  border: none;
-  outline: none;
+.chip.focused {
+  border-color: #111;
+  background: #fff;
 }
 
 .inp-row:has(input[disabled]) label {
@@ -547,9 +541,6 @@ input {
   line-height: 1.5rem;
   font-weight: 400;
   color: #999;
-}
-.inp-row input:focus {
-  border-bottom-color: #111;
 }
 .inp-row input:disabled {
   border-bottom-color: #dedede;
@@ -634,10 +625,10 @@ label.essential:after {
 
 .inp-date {
   position: relative;
-  border-bottom: 1px solid #bbb;
 }
 .inp-date > input {
   padding: 0.625rem 2.375rem 0.625rem 0;
+  border-bottom: 1px solid #bbb;
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
@@ -654,4 +645,196 @@ label.essential:after {
   content: "";
   width: clamp(1.75rem, 2vw, 1.75rem);
   height: clamp(1.75rem, 2vw, 1.75rem);
+}
+
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom-color: transparent;
+}
+input:focus {
+  border-bottom-color: #111;
+}
+
+.guide {
+  font-family: "Pretendard-Regular", "wanted-sans", sans-serif;
+  color: #2c3e50;
+}
+.guide .body .guide-menu {
+  position: fixed;
+  min-width: 200px;
+  height: 100vh;
+  border-right: 1px solid;
+  overflow: auto;
+  background: #fff;
+}
+.guide .body .guide-menu .logo {
+  padding: 20px;
+  cursor: pointer;
+}
+.guide .body .guide-menu li {
+  position: relative;
+  padding: 12px 20px;
+  cursor: pointer;
+}
+.guide .body .guide-menu li:hover {
+  background: #f8f8f8;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.guide .body .guide-menu li:hover::after {
+  opacity: 1;
+}
+.guide .body .guide-menu li::after {
+  display: inline-block;
+  content: "🧩";
+  position: absolute;
+  right: 20px;
+  opacity: 0;
+}
+.guide .body .guide-cont {
+  padding: 80px 40px 40px 240px;
+}
+.guide .body .guide-cont .cont-top {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #111;
+}
+.guide .body .guide-cont .cont-top h2 {
+  margin-bottom: 4px;
+}
+.guide .body .guide-cont .cont-mid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 40px;
+}
+.guide .body .guide-cont .cont-mid .item .item-tit {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap > div {
+  position: relative;
+  min-width: 8.3333333333%;
+  min-height: 100px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap > div p {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  padding: 4px 8px;
+  background: #fff;
+  text-align: center;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color1 {
+  background-color: #111;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color2 {
+  background-color: #fff;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color3 {
+  background-color: #f5f5f5;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color4 {
+  background-color: #eee;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color5 {
+  background-color: #dedede;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color6 {
+  background-color: #ccc;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color7 {
+  background-color: #bbb;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color8 {
+  background-color: #000;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color9 {
+  background-color: #111;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color10 {
+  background-color: #333;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color11 {
+  background-color: #444;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color12 {
+  background-color: #666;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color13 {
+  background-color: #999;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color14 {
+  background-color: #e3f5e7;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color15 {
+  background-color: #f9e4cb;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color16 {
+  background-color: #e2e6fd;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color17 {
+  background-color: #f9e9fb;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color18 {
+  background-color: #e5fad0;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color19 {
+  background-color: #f2e7fe;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color20 {
+  background-color: #d6f5f3;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color21 {
+  background-color: #fcf2d1;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color22 {
+  background-color: #f1f8c6;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color23 {
+  background-color: #dfecf6;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color24 {
+  background-color: #ffe5e5;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color25 {
+  background-color: #e6e9f1;
+}
+.guide .body .guide-cont .cont-mid .item .colors-wrap .color26 {
+  background-color: #ff334b;
+}
+.guide .body .guide-cont .cont-mid .item .typo-wrap .typo-table {
+  border: 1px solid #111;
+}
+.guide .body .guide-cont .cont-mid .item .typo-wrap .typo-table table {
+  width: 100%;
+}
+.guide .body .guide-cont .cont-mid .item .typo-wrap .typo-table table thead th {
+  background: #ffe6a0;
+}
+.guide .body .guide-cont .cont-mid .item .typo-wrap .typo-table table tbody tr {
+  border-bottom: 1px dashed #d9d9d9;
+}
+.guide .body .guide-cont .cont-mid .item .typo-wrap .typo-table table tbody tr:last-child {
+  border-bottom: none;
+}
+.guide .body .guide-cont .cont-mid .item .typo-wrap .typo-table table tbody tr:nth-child(2n) {
+  background: #f8f8f8;
+}
+.guide .body .guide-cont .cont-mid .item .typo-wrap .typo-table table tbody tr td {
+  padding: 0 4px;
+}
+.guide .body .guide-cont .cont-mid .item .icon-wrap {
+  border-radius: 12px;
+  background: #eee;
 }/*# sourceMappingURL=common.css.map */

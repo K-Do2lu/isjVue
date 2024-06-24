@@ -503,10 +503,6 @@ button {
 .chip:hover {
   border-color: #111;
 }
-.chip.focused {
-  background: #fff;
-  border-color: #111;
-}
 .chip:has(.check) {
   box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1019607843);
 }
@@ -514,11 +510,9 @@ button {
   width: clamp(1.25rem, 2vw, 1.5rem);
   height: clamp(1.25rem, 2vw, 1.5rem);
 }
-
-input {
-  width: 100%;
-  border: none;
-  outline: none;
+.chip.focused {
+  border-color: #111;
+  background: #fff;
 }
 
 .inp-row:has(input[disabled]) label {
@@ -547,9 +541,6 @@ input {
   line-height: 1.5rem;
   font-weight: 400;
   color: #999;
-}
-.inp-row input:focus {
-  border-bottom-color: #111;
 }
 .inp-row input:disabled {
   border-bottom-color: #dedede;
@@ -634,10 +625,10 @@ label.essential:after {
 
 .inp-date {
   position: relative;
-  border-bottom: 1px solid #bbb;
 }
 .inp-date > input {
   padding: 0.625rem 2.375rem 0.625rem 0;
+  border-bottom: 1px solid #bbb;
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
@@ -654,6 +645,16 @@ label.essential:after {
   content: "";
   width: clamp(1.75rem, 2vw, 1.75rem);
   height: clamp(1.75rem, 2vw, 1.75rem);
+}
+
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom-color: transparent;
+}
+input:focus {
+  border-bottom-color: #111;
 }
 
 .guide {
@@ -835,5 +836,13 @@ label.essential:after {
 }
 .guide .body .guide-cont .cont-mid .item .icon-wrap {
   border-radius: 12px;
+  background: #eee;
+}
+
+.side {
+  min-width: 20rem;
+  max-width: 20rem;
+  height: 100vh;
+  padding: 2.5rem 1.25rem;
   background: #eee;
 }/*# sourceMappingURL=normal.css.map */

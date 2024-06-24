@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <!-- <HelloWorld></HelloWorld> -->
-    <guideBasic></guideBasic>
+    <HelloWorld></HelloWorld>
+    <!-- <guideBasic></guideBasic> -->
   </div>
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld.vue";
-import guideBasic from "./views/guideBasic.vue";
+import HelloWorld from "./components/HelloWorld.vue";
+// import guideBasic from "./views/guideBasic.vue";
 
 export default {
   name: "App",
   components: {
-    // HelloWorld,
-    guideBasic,
+    HelloWorld,
+    // guideBasic,
   },
 };
 </script>

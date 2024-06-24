@@ -1,12 +1,18 @@
 <template>
   <div>
-    <h3>Installed CLI Plugins</h3>
+    <areaSide></areaSide>
   </div>
 </template>
 
 <script>
+import areaSide from "./areaSide.vue";
+
 export default {
   name: "HelloWorld",
+
+  components: {
+    areaSide,
+  },
   props: {
     msg: String,
   },
