@@ -6,11 +6,16 @@
 }
 // side
 .side {
+  @include mo360-767() {
+    display: none;
+  }
   @include flex-align(flex, column);
   flex: 0 0 20rem;
-  height: 100vh;
-  padding: 2.5rem 1.25rem;
-  background: #eee;
+  width: 100%;
+  height: calc(100vh - 2.5rem);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  border-right: 1px solid $c-111;
 
   .side-top {
     padding: 0.5rem 0 3rem 0;
@@ -33,6 +38,114 @@
   .side-bttm {
     button {
       width: 100%;
+    }
+  }
+}
+
+// header
+header {
+  @include mo360-767() {
+    width: calc(100% - 2.5rem);
+    padding: 0.875rem 0;
+  }
+  position: fixed;
+  right: 0;
+  width: calc(100% - 22.5rem);
+  height: 5.5rem;
+  max-height: 5.5rem;
+  margin: 0 1.25rem;
+  padding-top: clamp(0.875rem, 2vw, 1.25rem);
+  border-bottom: 1px solid $c-111;
+  .h-inner {
+    height: 100%;
+    @include grid(grid, minmax(7.5rem, 7.5rem) auto, space-between, center);
+  }
+  .h-logo {
+    @include mo360-767() {
+      opacity: 1;
+    }
+    @include icon-bg(100%, 100%, img_logo_s, png, contain);
+    opacity: 0;
+  }
+
+  .nav-btn {
+    @include flex(flex, start, center);
+    gap: 1rem;
+    .icon {
+      @include size-fit(1.75rem, 1.75rem, cover);
+      &.menu {
+        @include mo360-767() {
+          display: block;
+        }
+        display: none;
+      }
+    }
+  }
+}
+
+// header menu
+nav {
+  height: 100%;
+  a {
+    display: inline-block;
+  }
+  &:has(.nav-btn) {
+    display: flex;
+    gap: 1.5rem;
+  }
+  & > ul {
+    @include mo360-767() {
+      display: none;
+    }
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5rem;
+
+    li {
+      a.m-tit {
+        height: 100%;
+        margin-bottom: clamp(0.875rem, 2vw, 1.25rem);
+        @include fs-18-28;
+        font-weight: 700;
+        color: $c-ccc;
+      }
+    }
+
+    ul.m-sub {
+      position: absolute;
+      right: -1.25rem;
+      display: block;
+      min-width: 20rem;
+      height: auto;
+      border: 1px solid $c-111;
+
+      li {
+        @include flex-align(flex, column);
+        height: auto;
+        .m-sub-tit {
+          position: relative;
+          flex: 1 1 auto;
+          padding: 0.75rem 1.25rem;
+          @include fs-16-24;
+          font-weight: 700;
+          color: $c-333;
+          &::after {
+            position: absolute;
+            right: 1.25rem;
+            content: "";
+            @include icon-bg(1.5rem, 1.5rem, icon_disabled, png, contain);
+          }
+        }
+
+        // m-sub > ul
+        ul {
+          background: #eee;
+
+          li {
+            padding: 0.625rem 1.25rem;
+          }
+        }
+      }
     }
   }
 }
