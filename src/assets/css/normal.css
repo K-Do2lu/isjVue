@@ -925,6 +925,9 @@ header .h-logo {
     opacity: 1;
   }
 }
+header nav > ul li:hover ul.m-sub {
+  display: block !important;
+}
 header .nav-btn {
   display: flex;
   justify-content: start;
@@ -973,7 +976,13 @@ nav > ul li a.m-tit {
   font-weight: 700;
   color: #ccc;
 }
+nav > ul li.clicked a.m-tit {
+  color: #111;
+  text-decoration: underline;
+  text-underline-position: under;
+}
 nav > ul ul.m-sub {
+  display: none !important;
   position: absolute;
   right: -1.25rem;
   display: block;
@@ -1007,8 +1016,22 @@ nav > ul ul.m-sub li .m-sub-tit::after {
   background-position: center center;
 }
 nav > ul ul.m-sub li ul {
-  background: #eee;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 200ms ease-in;
+  background: #f5f5f5;
 }
 nav > ul ul.m-sub li ul li {
   padding: 0.625rem 1.25rem;
+}
+nav > ul ul.m-sub li.active .m-sub-tit::after {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url("@/assets/img/icon_active.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+nav > ul ul.m-sub li.active ul {
+  max-height: 320px;
 }/*# sourceMappingURL=normal.css.map */

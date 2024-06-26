@@ -68,6 +68,18 @@ header {
     opacity: 0;
   }
 
+  // header nav menu 인 경우
+  nav {
+    > ul {
+      li {
+        &:hover {
+          ul.m-sub {
+            display: block !important;
+          }
+        }
+      }
+    }
+  }
   .nav-btn {
     @include flex(flex, start, center);
     gap: 1rem;
@@ -83,7 +95,7 @@ header {
   }
 }
 
-// header menu
+// 공통 nav menu
 nav {
   height: 100%;
   a {
@@ -109,9 +121,17 @@ nav {
         font-weight: 700;
         color: $c-ccc;
       }
+      &.clicked {
+        a.m-tit {
+          color: $c-111;
+          text-decoration: underline;
+          text-underline-position: under;
+        }
+      }
     }
 
     ul.m-sub {
+      display: none !important;
       position: absolute;
       right: -1.25rem;
       display: block;
@@ -122,6 +142,7 @@ nav {
       li {
         @include flex-align(flex, column);
         height: auto;
+
         .m-sub-tit {
           position: relative;
           flex: 1 1 auto;
@@ -139,10 +160,26 @@ nav {
 
         // m-sub > ul
         ul {
-          background: #eee;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 200ms ease-in;
+          background: $c-f5f5f5;
 
           li {
             padding: 0.625rem 1.25rem;
+          }
+        }
+
+        // @click active
+        &.active {
+          .m-sub-tit {
+            &::after {
+              @include icon-bg(1.5rem, 1.5rem, icon_active, png, contain);
+            }
+          }
+
+          ul {
+            max-height: 320px;
           }
         }
       }
