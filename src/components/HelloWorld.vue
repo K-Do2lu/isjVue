@@ -1,20 +1,20 @@
 <template>
   <div class="main-align">
     <areaSide></areaSide>
-    <areaHome></areaHome>
+    <areaMain></areaMain>
   </div>
 </template>
 
 <script>
 import areaSide from "./areaSide.vue";
-import areaHome from "./areaHome.vue";
+import areaMain from "./areaMain.vue";
 
 export default {
   name: "HelloWorld",
 
   components: {
     areaSide,
-    areaHome,
+    areaMain,
   },
   props: {
     msg: String,

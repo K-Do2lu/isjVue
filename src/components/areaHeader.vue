@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :class="{ scroll: isScrolled }">
     <div class="h-inner">
       <a href="#" class="h-logo"></a>
 
@@ -49,6 +49,7 @@ export default {
   },
   data() {
     return {
+      isScrolled: false,
       menu: [
         { tit: "HOME", clicked: true },
         { tit: "ABOUT", clicked: false },
@@ -118,6 +119,7 @@ export default {
     };
   },
   methods: {
+    // menu sub
     subToggle(sub) {
       sub.active = !sub.active;
 
@@ -131,6 +133,18 @@ export default {
         }
       });
     },
+
+    // scroll event
+    handleScroll() {
+      this.isScrolled = window.scrollY > 0;
+    },
+  },
+
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
 };
 

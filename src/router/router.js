@@ -8,8 +8,9 @@ import guideBtn from "../views/guideBtn.vue";
 import guideForm from "../views/guideForm.vue";
 
 import areaSide from "../components/areaSide.vue";
-import areaHome from "../components/areaHome.vue";
 import areaHeader from "../components/areaHeader.vue";
+import areaMain from "../components/areaMain.vue";
+import areaHome from "../components/areaHome .vue";
 
 const routes = [
   {
@@ -54,14 +55,19 @@ const routes = [
     component: areaSide,
   },
   {
-    path: "/areaHome",
-    name: "areaHome",
-    component: areaHome,
-  },
-  {
     path: "/areaHeader",
     name: "areaHeader",
     component: areaHeader,
+  },
+  {
+    path: "/areaMain",
+    name: "areaMain",
+    component: areaMain,
+  },
+  {
+    path: "/areaHome",
+    name: "areaHome",
+    component: areaHome,
   },
 ];
 

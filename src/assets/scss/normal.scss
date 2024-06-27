@@ -13,12 +13,12 @@
   flex: 0 0 20rem;
   width: 100%;
   height: calc(100vh - 2.5rem);
-  padding: 1.25rem;
+  padding: 1.75rem 1.25rem 1.25rem;
   margin: 1.25rem 0;
   border-right: 1px solid $c-111;
 
   .side-top {
-    padding: 0.5rem 0 3rem 0;
+    padding: 0 0 2.9375rem;
     border-bottom: 1px solid $c-111;
     .logo {
       @include icon-bg(100%, 10.5rem, img_logo_l, png, contain);
@@ -46,6 +46,7 @@
 header {
   @include mo360-767() {
     width: calc(100% - 2.5rem);
+    max-height: 4.75rem;
     padding: 0.875rem 0;
   }
   position: fixed;
@@ -55,7 +56,11 @@ header {
   max-height: 5.5rem;
   margin: 0 1.25rem;
   padding-top: clamp(0.875rem, 2vw, 1.25rem);
-  border-bottom: 1px solid $c-111;
+  border-bottom: 1px solid transparent;
+  background: $c-fff;
+  &.scroll {
+    border-color: $c-111;
+  }
   .h-inner {
     height: 100%;
     @include grid(grid, minmax(7.5rem, 7.5rem) auto, space-between, center);
@@ -63,9 +68,11 @@ header {
   .h-logo {
     @include mo360-767() {
       opacity: 1;
+      pointer-events: all;
     }
     @include icon-bg(100%, 100%, img_logo_s, png, contain);
     opacity: 0;
+    pointer-events: none;
   }
 
   // header nav menu 인 경우
@@ -120,6 +127,7 @@ nav {
         @include fs-18-28;
         font-weight: 700;
         color: $c-ccc;
+        text-decoration: none;
       }
       &.clicked {
         a.m-tit {
@@ -183,6 +191,48 @@ nav {
           }
         }
       }
+    }
+  }
+}
+
+// main
+.main {
+  @include mo360-767 {
+    padding: 7.75rem 1.25rem 4rem;
+  }
+  width: 100%;
+  padding-top: 5.5rem;
+  padding: 8.75rem 1.25rem 6.25rem;
+  .main-top {
+    @include mo360-767() {
+      flex-wrap: wrap;
+      padding-top: 0;
+    }
+    display: flex;
+    gap: clamp(0.75rem, 2vw, 1rem);
+    padding-top: 0.375rem;
+    padding-bottom: clamp(1.25rem, 2vw, 1.875rem);
+    border-bottom: 1px solid $c-111;
+    .top-tit {
+      @include mo360-767() {
+        flex: 1;
+        padding-left: 0;
+      }
+      flex: 0 1 20.125rem;
+      padding-left: 1.25rem;
+      @include fs-42-50;
+      font-weight: 400;
+    }
+    .chips-wrap {
+      @include mo360-767() {
+        max-width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+      }
+      @include media-minmax(767px, 1600px) {
+        max-width: calc(100% - 20.125rem);
+      }
+      max-width: calc(100% - 33.125rem);
     }
   }
 }
