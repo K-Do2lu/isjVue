@@ -46,6 +46,10 @@ a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
+em {
+  font-style: normal;
+}
+
 ul,
 li {
   list-style: none;

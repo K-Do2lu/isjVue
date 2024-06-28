@@ -19,7 +19,45 @@
       </div>
     </div>
 
-    <div class="main-mid">123</div>
+    <div class="main-mid">
+      <!-- list -->
+      <div class="list">
+        <!-- img -->
+        <div class="list-img">
+          <img src="../assets/img/work01.jpg" alt="work img" />
+        </div>
+
+        <!-- list inner -->
+        <div class="list-inner">
+          <div class="inner-top">
+            <div class="tag-wrap">
+              <div :class="tag.color" v-for="(tag, index) in tags" :key="index">
+                <span>{{ tag.txt }}</span>
+              </div>
+            </div>
+
+            <h3 class="list-tit"><em>2023</em>FLLAB 다용도 음식 트레이</h3>
+
+            <p class="list-txt">
+              FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과
+              라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적
+              생활을 함께 탐색한다. FLLAB(Future Life Lab)은 지속가능한 지구를
+              위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과
+              미적 생활을 함께 탐색한다. FLLAB(Future Life Lab)은 지속가능한
+              지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의
+              다양성과 미적 생활을 함께 탐색한다. FLLAB(Future Life Lab)은
+              지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의
+              인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다.
+            </p>
+          </div>
+          <div class="inner-bttm">
+            <button type="button" class="btn">
+              View<i class="icon arrow right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- // Home area -->
 </template>
@@ -50,6 +88,7 @@ export default {
         { tit: "생태 ∙ 지속가능", icon: "icon cross", focus: false },
         { tit: "예술 ∙ 디자인일반", icon: "icon cross", focus: false },
       ],
+      tags: [{ color: "tag10", txt: "지역사회디자인" }],
     };
   },
   methods: {

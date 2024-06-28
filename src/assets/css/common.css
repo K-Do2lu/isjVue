@@ -48,6 +48,10 @@ a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
+em {
+  font-style: normal;
+}
+
 ul,
 li {
   list-style: none;
@@ -110,6 +114,11 @@ button {
   border: none;
   background: transparent;
   cursor: pointer;
+}
+button .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
 }
 
 .txt-under {
@@ -227,9 +236,11 @@ button {
   align-items: center;
   min-width: 6.25rem;
   width: auto;
+  height: clamp(3rem, 2vw, 3.25rem);
   padding: 0.625rem;
   border: 1px solid #111;
   background: #fff;
+  font-family: "wanted-sans";
   font-weight: 600;
   white-space: nowrap;
 }
@@ -498,6 +509,7 @@ button {
   border-radius: 3.125rem;
   border: 1px solid transparent;
   background: #f5f5f5;
+  font-family: "Pretendard-Regular";
   color: #111;
   overflow: hidden;
   font-size: 1rem;
