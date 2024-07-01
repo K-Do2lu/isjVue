@@ -10,12 +10,15 @@
     display: none;
   }
   @include flex-align(flex, column);
+  position: fixed;
   flex: 0 0 20rem;
-  width: 100%;
+  width: 20rem;
+  max-width: 20rem;
   height: calc(100vh - 2.5rem);
   padding: 1.75rem 1.25rem 1.25rem;
   margin: 1.25rem 0;
   border-right: 1px solid $c-111;
+  background: $c-fff;
 
   .side-top {
     padding: 0 0 2.9375rem;
@@ -201,8 +204,8 @@ nav {
     padding: 7.75rem 1.25rem 4rem;
   }
   width: 100%;
-  padding-top: 5.5rem;
-  padding: 8.75rem 1.25rem 6.25rem;
+  // padding: 8.75rem 1.25rem 6.25rem;
+  padding: 8.75rem 1.25rem 6.25rem 21.25rem;
   .main-top {
     @include mo360-767() {
       flex-wrap: wrap;
@@ -230,15 +233,29 @@ nav {
         overflow-x: auto;
       }
       @include media-minmax(767px, 1600px) {
-        max-width: calc(100% - 20.125rem);
+        max-width: calc(100% - 18.75rem);
       }
       max-width: calc(100% - 33.125rem);
     }
   }
 
   .list {
+    @include mo360-767 {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 1.25rem 0;
+
+      .list-inner {
+        gap: 2.5rem;
+      }
+    }
     display: flex;
     gap: clamp(1.25rem, 2vw, 2.5rem);
+    padding: 2.5rem 1.25rem;
+
+    & + .list {
+      border-top: 1px solid $c-111;
+    }
 
     .list-img {
       width: 20rem;
@@ -295,6 +312,10 @@ nav {
 
             &:disabled {
               background: $c-bbb;
+            }
+
+            .icon {
+              filter: brightness(0) invert(1);
             }
           }
         }

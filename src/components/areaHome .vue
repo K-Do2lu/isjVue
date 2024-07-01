@@ -21,33 +21,32 @@
 
     <div class="main-mid">
       <!-- list -->
-      <div class="list">
+      <div class="list" v-for="(item, index) in lists" :key="index">
         <!-- img -->
         <div class="list-img">
-          <img src="../assets/img/work01.jpg" alt="work img" />
+          <img :src="getImgSrc(item.src)" :alt="item.alt" />
         </div>
 
         <!-- list inner -->
         <div class="list-inner">
           <div class="inner-top">
             <div class="tag-wrap">
-              <div :class="tag.color" v-for="(tag, index) in tags" :key="index">
+              <div
+                :class="tag.color"
+                v-for="(tag, index) in item.tags"
+                :key="index"
+              >
                 <span>{{ tag.txt }}</span>
               </div>
             </div>
 
-            <h3 class="list-tit"><em>2023</em>FLLAB 다용도 음식 트레이</h3>
+            <h3 class="list-tit">
+              <em>{{ item.year }}</em
+              >{{ item.tit }}
+            </h3>
 
             <p class="list-txt">
-              FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과
-              라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적
-              생활을 함께 탐색한다. FLLAB(Future Life Lab)은 지속가능한 지구를
-              위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과
-              미적 생활을 함께 탐색한다. FLLAB(Future Life Lab)은 지속가능한
-              지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의
-              다양성과 미적 생활을 함께 탐색한다. FLLAB(Future Life Lab)은
-              지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의
-              인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다.
+              {{ item.txt }}
             </p>
           </div>
           <div class="inner-bttm">
@@ -89,11 +88,46 @@ export default {
         { tit: "예술 ∙ 디자인일반", icon: "icon cross", focus: false },
       ],
       tags: [{ color: "tag10", txt: "지역사회디자인" }],
+
+      // list
+      lists: [
+        {
+          src: "work01.jpg",
+
+          alt: "이미지 설명1",
+
+          tags: [{ color: "tag10", txt: "지역사회디자인" }],
+
+          year: "2023",
+          tit: "FLLAB 다용도 음식 트레이",
+
+          txt: "FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다. FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다. FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다. FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다.",
+        },
+        {
+          src: "work02.jpeg",
+
+          alt: "이미지 설명2",
+
+          tags: [{ color: "tag10", txt: "지역사회디자인" }],
+
+          year: "2023",
+          tit: "FLLAB 다용도 음식 트레이",
+
+          txt: "FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다. FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다. FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다. FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다.",
+        },
+      ],
     };
   },
   methods: {
     focus(index) {
       this.chips[index].focus = !this.chips[index].focus;
+    },
+    getImgSrc(src) {
+      try {
+        return require(`@/assets/img/${src}`);
+      } catch (e) {
+        return "";
+      }
     },
   },
 };

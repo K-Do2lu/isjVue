@@ -236,6 +236,7 @@ button .icon {
   align-items: center;
   min-width: 6.25rem;
   width: auto;
+  height: clamp(3rem, 2vw, 3.25rem);
   padding: 0.625rem;
   border: 1px solid #111;
   background: #fff;
@@ -876,12 +877,15 @@ input:focus {
 .side {
   display: flex;
   flex-direction: column;
+  position: fixed;
   flex: 0 0 20rem;
-  width: 100%;
+  width: 20rem;
+  max-width: 20rem;
   height: calc(100vh - 2.5rem);
   padding: 1.75rem 1.25rem 1.25rem;
   margin: 1.25rem 0;
   border-right: 1px solid #111;
+  background: #fff;
 }
 @media (min-width: 360px) and (max-width: 767px) {
   .side {
@@ -1072,8 +1076,7 @@ nav > ul ul.m-sub li.active ul {
 
 .main {
   width: 100%;
-  padding-top: 5.5rem;
-  padding: 8.75rem 1.25rem 6.25rem;
+  padding: 8.75rem 1.25rem 6.25rem 21.25rem;
 }
 @media (min-width: 360px) and (max-width: 767px) {
   .main {
@@ -1118,12 +1121,26 @@ nav > ul ul.m-sub li.active ul {
 }
 @media (min-width: 767px) and (max-width: 1600px) {
   .main .main-top .chips-wrap {
-    max-width: calc(100% - 20.125rem);
+    max-width: calc(100% - 18.75rem);
   }
 }
 .main .list {
   display: flex;
   gap: clamp(1.25rem, 2vw, 2.5rem);
+  padding: 2.5rem 1.25rem;
+}
+@media (min-width: 360px) and (max-width: 767px) {
+  .main .list {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1.25rem 0;
+  }
+  .main .list .list-inner {
+    gap: 2.5rem;
+  }
+}
+.main .list + .list {
+  border-top: 1px solid #111;
 }
 .main .list .list-img {
   width: 20rem;
@@ -1187,5 +1204,8 @@ nav > ul ul.m-sub li.active ul {
   }
   .main .list .list-inner .inner-bttm .btn:disabled {
     background: #bbb;
+  }
+  .main .list .list-inner .inner-bttm .btn .icon {
+    filter: brightness(0) invert(1);
   }
 }/*# sourceMappingURL=normal.css.map */
