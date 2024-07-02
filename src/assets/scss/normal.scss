@@ -149,6 +149,7 @@ nav {
       min-width: 20rem;
       height: auto;
       border: 1px solid $c-111;
+      background: $c-fff;
 
       li {
         @include flex-align(flex, column);
@@ -161,6 +162,7 @@ nav {
           @include fs-16-24;
           font-weight: 700;
           color: $c-333;
+          text-decoration: none;
           &::after {
             position: absolute;
             right: 1.25rem;
@@ -178,6 +180,12 @@ nav {
 
           li {
             padding: 0.625rem 1.25rem;
+
+            &:hover {
+              a {
+                font-weight: 600;
+              }
+            }
           }
         }
 
@@ -320,6 +328,32 @@ nav {
           }
         }
         @include flex(inline-flex, flex-end, start);
+      }
+    }
+  }
+
+  // sch
+  .sch-wrap {
+    @include flex-align(flex, column);
+    @include mo360-767 {
+      margin-bottom: 2.5rem;
+    }
+    align-items: center;
+    gap: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: 3.75rem;
+    .inp-sch {
+      @include mo360-767 {
+        width: 100%;
+      }
+      width: 52.75rem;
+      max-width: 52.75rem;
+    }
+
+    .sch-txt {
+      @include fs-18-28;
+      font-weight: 400;
+      em {
+        font-weight: 700;
       }
     }
   }

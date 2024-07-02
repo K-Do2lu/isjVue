@@ -1027,6 +1027,7 @@ nav > ul ul.m-sub {
   min-width: 20rem;
   height: auto;
   border: 1px solid #111;
+  background: #fff;
 }
 nav > ul ul.m-sub li {
   display: flex;
@@ -1041,6 +1042,7 @@ nav > ul ul.m-sub li .m-sub-tit {
   line-height: 1.5rem;
   font-weight: 700;
   color: #333;
+  text-decoration: none;
 }
 nav > ul ul.m-sub li .m-sub-tit::after {
   position: absolute;
@@ -1061,6 +1063,9 @@ nav > ul ul.m-sub li ul {
 }
 nav > ul ul.m-sub li ul li {
   padding: 0.625rem 1.25rem;
+}
+nav > ul ul.m-sub li ul li:hover a {
+  font-weight: 600;
 }
 nav > ul ul.m-sub li.active .m-sub-tit::after {
   width: 1.5rem;
@@ -1208,4 +1213,33 @@ nav > ul ul.m-sub li.active ul {
   .main .list .list-inner .inner-bttm .btn .icon {
     filter: brightness(0) invert(1);
   }
+}
+.main .sch-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: 3.75rem;
+}
+@media (min-width: 360px) and (max-width: 767px) {
+  .main .sch-wrap {
+    margin-bottom: 2.5rem;
+  }
+}
+.main .sch-wrap .inp-sch {
+  width: 52.75rem;
+  max-width: 52.75rem;
+}
+@media (min-width: 360px) and (max-width: 767px) {
+  .main .sch-wrap .inp-sch {
+    width: 100%;
+  }
+}
+.main .sch-wrap .sch-txt {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+.main .sch-wrap .sch-txt em {
+  font-weight: 700;
 }/*# sourceMappingURL=normal.css.map */

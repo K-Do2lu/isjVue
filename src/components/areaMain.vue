@@ -1,18 +1,21 @@
 <template>
   <areaHeader></areaHeader>
-  <areaHome></areaHome>
+  <!-- <areaHome></areaHome> -->
+  <areaSearch></areaSearch>
 </template>
 
 <script>
 import areaHeader from "./areaHeader.vue";
-import areaHome from "./areaHome .vue";
+// import areaHome from "./areaHome .vue";
+import areaSearch from "./areaSearch.vue";
 
 export default {
   name: "areaMain",
   props: {},
   components: {
     areaHeader,
-    areaHome,
+    // areaHome,
+    areaSearch,
   },
   computed: {},
   data() {

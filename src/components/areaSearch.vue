@@ -1,6 +1,36 @@
 <template>
   <!-- Home area -->
   <div class="main">
+    <div class="sch-wrap">
+      <div class="inp-sch">
+        <!-- scroll area -->
+        <div class="sch-scroll">
+          <div class="chips-wrap">
+            <!-- <button
+              type="button"
+              class="chip"
+              v-for="(chip, index) in chips"
+              :key="index"
+              @click="focus(index)"
+              :class="{ focused: chip.focus }"
+            >
+              <span>{{ chip.tit }}</span
+              ><i :class="chip.icon" v-if="chip.focus === true"></i>
+            </button> -->
+          </div>
+          <input type="text" placeholder="검색어를 입력해주세요" />
+        </div>
+        <!-- // scroll area -->
+
+        <button type="button" class="icon search"></button>
+      </div>
+
+      <p class="sch-txt">
+        <em>‘{{ schTxt }}’</em> 에 대한 검색결과는
+        <em>‘총 {{ schNum }}개’</em> 입니다.
+      </p>
+    </div>
+
     <div class="main-top">
       <h2 class="top-tit">Keyword.</h2>
 
@@ -63,12 +93,14 @@
 
 <script>
 export default {
-  name: "areaHome",
+  name: "areaSearch",
   props: {},
   components: {},
   computed: {},
   data() {
     return {
+      schTxt: "가나다",
+      schNum: "00",
       chips: [
         { tit: "국가 ∙ 공공디자인 ∙ 정책", icon: "icon check", focus: true },
         { tit: "조형 ∙ 미학", icon: "icon cross", focus: false },
