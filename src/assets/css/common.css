@@ -223,6 +223,12 @@ button .icon {
   object-fit: cover;
   background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M38.5 49.0666V23.4666H41.5V49.0666H38.5Z' fill='%23CCCCCC'/%3E%3Cpath d='M41.6004 53.3333H38.4004V56.5333H41.6004V53.3333Z' fill='%23CCCCCC'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M40 72C57.6731 72 72 57.6731 72 40C72 22.3269 57.6731 8 40 8C22.3269 8 8 22.3269 8 40C8 57.6731 22.3269 72 40 72ZM40 69C56.0163 69 69 56.0163 69 40C69 23.9837 56.0163 11 40 11C23.9837 11 11 23.9837 11 40C11 56.0163 23.9837 69 40 69Z' fill='%23CCCCCC'/%3E%3C/svg%3E%0A");
 }
+@media (min-width: 360px) and (max-width: 767px) {
+  .icon.none {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+}
 .icon.img {
   width: 3.25rem;
   height: 3.25rem;

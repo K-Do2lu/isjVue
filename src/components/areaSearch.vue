@@ -1,12 +1,11 @@
 <template>
   <!-- Home area -->
-  <div class="main">
-    <div class="sch-wrap">
-      <div class="inp-sch">
-        <!-- scroll area -->
-        <div class="sch-scroll">
-          <div class="chips-wrap">
-            <!-- <button
+  <div class="sch-wrap">
+    <div class="inp-sch">
+      <!-- scroll area -->
+      <div class="sch-scroll">
+        <div class="chips-wrap">
+          <!-- <button
               type="button"
               class="chip"
               v-for="(chip, index) in chips"
@@ -17,41 +16,47 @@
               <span>{{ chip.tit }}</span
               ><i :class="chip.icon" v-if="chip.focus === true"></i>
             </button> -->
-          </div>
-          <input type="text" placeholder="검색어를 입력해주세요" />
         </div>
-        <!-- // scroll area -->
-
-        <button type="button" class="icon search"></button>
+        <input type="text" placeholder="검색어를 입력해주세요" />
       </div>
+      <!-- // scroll area -->
 
-      <p class="sch-txt">
-        <em>‘{{ schTxt }}’</em> 에 대한 검색결과는
-        <em>‘총 {{ schNum }}개’</em> 입니다.
-      </p>
+      <button type="button" class="icon search"></button>
     </div>
 
-    <div class="main-top">
-      <h2 class="top-tit">Keyword.</h2>
+    <p class="sch-txt">
+      <em>‘{{ schTxt }}’</em> 에 대한 검색결과는
+      <em>‘총 {{ schNum }}개’</em> 입니다.
+    </p>
+  </div>
 
-      <div class="chips-wrap">
-        <button
-          type="button"
-          class="chip"
-          v-for="(chip, index) in chips"
-          :key="index"
-          @click="focus(index)"
-          :class="{ focused: chip.focus }"
-        >
-          <span>{{ chip.tit }}</span
-          ><i :class="chip.icon" v-if="chip.focus === true"></i>
-        </button>
-      </div>
+  <div class="main-top">
+    <h2 class="top-tit">Keyword.</h2>
+
+    <div class="chips-wrap">
+      <button
+        type="button"
+        class="chip"
+        v-for="(chip, index) in chips"
+        :key="index"
+        @click="focus(index)"
+        :class="{ focused: chip.focus }"
+      >
+        <span>{{ chip.tit }}</span
+        ><i :class="chip.icon" v-if="chip.focus === true"></i>
+      </button>
     </div>
+  </div>
 
-    <div class="main-mid">
-      <!-- list -->
-      <div class="list" v-for="(item, index) in lists" :key="index">
+  <div class="main-mid">
+    <!-- no data -->
+    <div class="no-data" v-if="listData === false">
+      <i class="icon none"></i>
+      <p>검색 값이 없습니다.</p>
+    </div>
+    <!-- list -->
+    <template v-for="(item, index) in lists" :key="index">
+      <div class="list" v-if="listData === true">
         <!-- img -->
         <div class="list-img">
           <img :src="getImgSrc(item.src)" :alt="item.alt" />
@@ -86,7 +91,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </template>
   </div>
   <!-- // Home area -->
 </template>
@@ -151,6 +156,8 @@ export default {
           txt: "FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다. FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다. FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다. FLLAB(Future Life Lab)은 지속가능한 지구를 위한 삶과 라이프스타일을 모색하며, 최소의 인풋으로 최대의 다양성과 미적 생활을 함께 탐색한다.",
         },
       ],
+
+      listData: true,
     };
   },
   methods: {

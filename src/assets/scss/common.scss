@@ -318,6 +318,10 @@ button {
   }
 
   &.none {
+    @include mo360-767() {
+      width: 3.75rem;
+      height: 3.75rem;
+    }
     width: 5rem;
     height: 5rem;
     object-fit: cover;

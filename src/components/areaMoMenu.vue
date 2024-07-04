@@ -1,53 +1,49 @@
 <template>
-  <header :class="{ scroll: isScrolled }">
-    <div class="h-inner">
-      <a href="#" class="h-logo"></a>
+  <div>
+    123
+    <nav>
+      <ul>
+        <li
+          v-for="(li, index) in menu"
+          :key="index"
+          :class="{ clicked: li.clicked === true }"
+          @click="li.clicked === true"
+        >
+          <a href="#" class="m-tit">{{ li.tit }}</a>
 
-      <nav>
-        <ul>
-          <li
-            v-for="(li, index) in menu"
-            :key="index"
-            :class="{ clicked: li.clicked === true }"
-            @click="li.clicked === true"
-          >
-            <a href="#" class="m-tit">{{ li.tit }}</a>
+          <ul class="m-sub" v-if="li.subs">
+            <li
+              v-for="(sub, index) in li.subs"
+              :key="index"
+              :class="{ active: sub.active }"
+              @click="subToggle(sub)"
+            >
+              <a href="#" class="m-sub-tit">{{ sub.tit }}</a>
 
-            <ul class="m-sub" v-if="li.subs">
-              <li
-                v-for="(sub, index) in li.subs"
-                :key="index"
-                :class="{ active: sub.active }"
-                @click="subToggle(sub)"
-              >
-                <a href="#" class="m-sub-tit">{{ sub.tit }}</a>
+              <ul v-if="sub.item">
+                <li v-for="(item, index) in sub.item" :key="index">
+                  <a href="#">{{ item.tit }}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
 
-                <ul v-if="sub.item">
-                  <li v-for="(item, index) in sub.item" :key="index">
-                    <a href="#">{{ item.tit }}</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-        <div class="nav-btn">
-          <button type="button" class="icon search"></button>
-          <button type="button" class="icon menu"></button>
-        </div>
-      </nav>
-    </div>
-  </header>
+      <div class="nav-btn">
+        <button type="button" class="icon search"></button>
+        <button type="button" class="icon menu"></button>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "areaHeader",
+  name: "areaMoMenu",
   props: {
     msg: String,
   },
-  components: {},
   data() {
     return {
       isScrolled: false,

@@ -12,6 +12,7 @@ import areaHeader from "../components/areaHeader.vue";
 import areaMain from "../components/areaMain.vue";
 import areaHome from "../components/areaHome .vue";
 import areaSearch from "../components/areaSearch.vue";
+import areaMoMenu from "../components/areaMoMenu.vue";
 
 const routes = [
   {
@@ -74,6 +75,11 @@ const routes = [
     path: "/areaSearch",
     name: "areaSearch",
     component: areaSearch,
+  },
+  {
+    path: "/areaMoMenu",
+    name: "areaMoMenu",
+    component: areaMoMenu,
   },
 ];
 

@@ -1,25 +1,32 @@
 <template>
   <areaHeader></areaHeader>
-  <!-- <areaHome></areaHome> -->
-  <areaSearch></areaSearch>
+  <div class="main">
+    <areaMoMenu></areaMoMenu>
+    <!-- <areaHome></areaHome> -->
+    <!-- <areaSearch></areaSearch> -->
+  </div>
 </template>
 
 <script>
 import areaHeader from "./areaHeader.vue";
+import areaMoMenu from "./areaMoMenu.vue";
+
 // import areaHome from "./areaHome .vue";
-import areaSearch from "./areaSearch.vue";
+// import areaSearch from "./areaSearch.vue";
 
 export default {
   name: "areaMain",
   props: {},
   components: {
     areaHeader,
+    areaMoMenu,
     // areaHome,
-    areaSearch,
+    // areaSearch,
   },
   computed: {},
   data() {
     return {
+      isMenuVisible: false,
       chips: [
         { tit: "국가 ∙ 공공디자인 ∙ 정책", icon: "icon check", focus: true },
         { tit: "조형 ∙ 미학", icon: "icon cross", focus: false },

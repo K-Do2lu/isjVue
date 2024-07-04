@@ -1,63 +1,62 @@
 <template>
   <!-- Home area -->
-  <div class="main">
-    <div class="main-top">
-      <h2 class="top-tit">Keyword.</h2>
+  <div class="main-top">
+    <h2 class="top-tit">Keyword.</h2>
 
-      <div class="chips-wrap">
-        <button
-          type="button"
-          class="chip"
-          v-for="(chip, index) in chips"
-          :key="index"
-          @click="focus(index)"
-          :class="{ focused: chip.focus }"
-        >
-          <span>{{ chip.tit }}</span
-          ><i :class="chip.icon" v-if="chip.focus === true"></i>
-        </button>
-      </div>
+    <div class="chips-wrap">
+      <button
+        type="button"
+        class="chip"
+        v-for="(chip, index) in chips"
+        :key="index"
+        @click="focus(index)"
+        :class="{ focused: chip.focus }"
+      >
+        <span>{{ chip.tit }}</span
+        ><i :class="chip.icon" v-if="chip.focus === true"></i>
+      </button>
     </div>
+  </div>
 
-    <div class="main-mid">
-      <!-- list -->
-      <div class="list" v-for="(item, index) in lists" :key="index">
-        <!-- img -->
-        <div class="list-img">
-          <img :src="getImgSrc(item.src)" :alt="item.alt" />
-        </div>
+  <div class="main-mid">
+    <!-- list -->
+    <div class="list" v-for="(item, index) in lists" :key="index">
+      <!-- img -->
+      <div class="list-img">
+        <img :src="getImgSrc(item.src)" :alt="item.alt" />
+      </div>
 
-        <!-- list inner -->
-        <div class="list-inner">
-          <div class="inner-top">
-            <div class="tag-wrap">
-              <div
-                :class="tag.color"
-                v-for="(tag, index) in item.tags"
-                :key="index"
-              >
-                <span>{{ tag.txt }}</span>
-              </div>
+      <!-- list inner -->
+      <div class="list-inner">
+        <div class="inner-top">
+          <div class="tag-wrap">
+            <div
+              :class="tag.color"
+              v-for="(tag, index) in item.tags"
+              :key="index"
+            >
+              <span>{{ tag.txt }}</span>
             </div>
-
-            <h3 class="list-tit">
-              <em>{{ item.year }}</em
-              >{{ item.tit }}
-            </h3>
-
-            <p class="list-txt">
-              {{ item.txt }}
-            </p>
           </div>
-          <div class="inner-bttm">
-            <button type="button" class="btn">
-              View<i class="icon arrow right"></i>
-            </button>
-          </div>
+
+          <h3 class="list-tit">
+            <em>{{ item.year }}</em
+            >{{ item.tit }}
+          </h3>
+
+          <p class="list-txt">
+            {{ item.txt }}
+          </p>
+        </div>
+        <div class="inner-bttm">
+          <button type="button" class="btn">
+            View<i class="icon arrow right"></i>
+          </button>
         </div>
       </div>
     </div>
   </div>
+
   <!-- // Home area -->
 </template>
 
